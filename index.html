@@ -156,6 +156,21 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 2px solid #8bc34a;
+        }
+        
         .testimonial-card p {
             font-style: italic;
             margin-bottom: 1rem;
@@ -165,34 +180,6 @@
             font-weight: bold;
             color: #2e7d32;
         }
-        .testimonial-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.testimonial-image {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 1rem;
-    border: 2px solid #8bc34a;
-}
-
-.testimonial-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.testimonial-card p {
-    margin-top: 0;
-}
-
-.testimonial-author {
-    font-weight: bold;
-    color: #2e7d32;
-}
         
         .products {
             display: flex;
@@ -418,8 +405,6 @@
             <div class="hero">
                 <h1>Edible Cups for a Greener Tomorrow</h1>
                 <p>Discover Sip & Crunch - eco-friendly, delicious edible cups that eliminate waste and enhance your beverage experience!</p>
-                <h2>Sip. Bite. Enjoy.</h2>
-                <p>Say goodbye to wasteful cups and hello to a delicious, eco-friendly alternative! Our edible cups are crafted with love, sustainability, and great taste—perfect for coffee, tea, and desserts.</p>
                 <button class="cta-button" onclick="showSection('products')">Explore Our Products</button>
             </div>
 
@@ -450,14 +435,20 @@
             <div class="testimonials">
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="/api/placeholder/60/60" alt="Arfath" class="testimonial-image">
+                            <div class="testimonial-author">- Arfath, Café Owner</div>
+                        </div>
                         <p>"Sip & Crunch has revolutionized how we serve drinks at our café. Our customers love the novelty and eco-friendly aspect, and we've reduced our waste significantly!"</p>
-                        <div class="testimonial-author">- Arfath, Café Owner</div>
+                    </div>
+                    
                     <div class="testimonial-card">
-            <div class="testimonial-header">
-                <img src="images/naveed.jpg" alt="Naveed Shaik" class="testimonial-image">
-                <div class="testimonial-author">- Naveed Shaik (Saudi), Regular Customer</div>
-                </div>
-                    <p>"I was skeptical at first, but these edible cups are amazing! They hold my coffee perfectly and add a nice subtle flavor. Plus, I feel good about not throwing away a cup after every drink."</p>
+                        <div class="testimonial-header">
+                            <img src="images/naveed.jpg" alt="Naveed Shaik" class="testimonial-image">
+                            <div class="testimonial-author">- Naveed Shaik (Saudi), Regular Customer</div>
+                        </div>
+                        <p>"I was skeptical at first, but these edible cups are amazing! They hold my coffee perfectly and add a nice subtle flavor. Plus, I feel good about not throwing away a cup after every drink."</p>
+                    </div>
                 </div>
             </div>
             
