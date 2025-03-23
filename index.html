@@ -3,685 +3,819 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sip & Crunch - Edible Cups</title>
+    <title>Sip & Crunch - Eco-Friendly Edible Cups</title>
     <style>
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f9f5f0;
+            line-height: 1.6;
             color: #333;
+            background-color: #f9f9f9;
         }
         
-        header {
-            background-color: #8bc34a;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #fff;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: #fff;
+        a {
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #004d40;
+            color: #5a8d5a;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 0 20px;
         }
         
-        .hero {
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            padding: 4rem 1rem;
-            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('/api/placeholder/1200/600') center/cover no-repeat;
-            border-radius: 12px;
-            margin-bottom: 3rem;
+            padding: 20px 0;
         }
         
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2e7d32;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-button {
-            background-color: #ff6f00;
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
+        .logo {
+            font-size: 28px;
             font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            color: #5a8d5a;
         }
         
-        .cta-button:hover {
-            background-color: #e65100;
+        .logo span {
+            color: #d68c45;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #d68c45;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #5a8d5a;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #d68c45;
+            transform: translateY(-3px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
         }
         
         .section-title {
-            font-size: 2rem;
             text-align: center;
-            margin-bottom: 2rem;
-            color: #2e7d32;
+            margin-bottom: 50px;
         }
         
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #5a8d5a;
+            margin-bottom: 15px;
         }
         
-        .feature-card {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        .feature-card img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            color: #2e7d32;
-        }
-        
-        .testimonials {
-            margin-bottom: 3rem;
-        }
-        
-        .testimonial-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        
-        .testimonial-card {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 1rem;
-            border: 2px solid #8bc34a;
-        }
-        
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: #2e7d32;
-        }
-        
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-        
-        .product-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 350px;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-image {
-            height: 200px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-        }
-        
-        .product-info h3 {
-            margin-bottom: 0.5rem;
-            color: #2e7d32;
-        }
-        
-        .product-price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            color: #ff6f00;
-        }
-        
-        .business-section {
-            background-color: #e8f5e9;
-            padding: 3rem 1rem;
-            text-align: center;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-        }
-        
-        .business-section h2 {
-            margin-bottom: 1rem;
-            color: #2e7d32;
-        }
-        
-        .business-section p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        
-        .about-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 12px;
-        }
-        
-        .about-content {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .about-content h2 {
-            margin-bottom: 1rem;
-            color: #2e7d32;
-        }
-        
-        .contact-form {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+        .section-title p {
+            font-size: 1.1rem;
+            color: #777;
+            max-width: 700px;
             margin: 0 auto;
         }
         
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #5a8d5a;
+        }
+        
+        .feature-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 80px 0;
+            background-color: #f2f9f2;
+        }
+        
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .choose-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .choose-icon {
+            font-size: 2rem;
+            color: #5a8d5a;
+            margin-right: 20px;
+            min-width: 40px;
+        }
+        
+        .choose-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+        
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 250px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #5a8d5a;
+            margin-bottom: 15px;
+        }
+        
+        /* Business Section */
+        .business {
+            padding: 80px 0;
+            background-color: #f9f7f2;
+        }
+        
+        .business-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .business-img {
+            height: 400px;
+            background: url('/api/placeholder/600/400') center/cover no-repeat;
+            border-radius: 10px;
+        }
+        
+        .business-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #5a8d5a;
+        }
+        
+        .business-content ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .business-content ul li {
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            font-size: 5rem;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #eee;
+            z-index: 0;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f2f9f2;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+        
+        .contact-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #5a8d5a;
+        }
+        
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
         }
         
         .contact-info {
-            margin-top: 2rem;
-            text-align: center;
+            padding: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #5a8d5a;
         }
         
         .contact-info p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 30px;
         }
         
-        footer {
-            background-color: #2e7d32;
-            color: white;
-            padding: 2rem 1rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .contact-item {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
         
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #5a8d5a;
+            margin-right: 15px;
+            min-width: 30px;
         }
         
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #8bc34a;
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
         }
         
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0 20px;
         }
         
-        .footer-section a:hover {
-            color: #8bc34a;
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #5a8d5a;
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links li a {
+            color: #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links li a:hover {
+            color: #5a8d5a;
+            padding-left: 5px;
         }
         
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 20px;
         }
         
-        .social-links a {
-            display: inline-block;
+        .social-link {
             width: 40px;
             height: 40px;
-            background-color: white;
+            background-color: #444;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2e7d32;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            margin-right: 10px;
+            transition: all 0.3s ease;
         }
         
-        .social-links a:hover {
-            background-color: #8bc34a;
-            color: white;
+        .social-link:hover {
+            background-color: #5a8d5a;
+            transform: translateY(-3px);
         }
         
         .footer-bottom {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
         }
-
-        .hidden {
-            display: none;
+        
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .business-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .business-img {
+                height: 300px;
+            }
         }
-
-        #home-section,
-        #products-section,
-        #about-section,
-        #contact-section,
-        #sales-section {
-            transition: opacity 0.3s;
-        }
-
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <nav>
-            <div class="logo">Sip & Crunch</div>
-            <div class="nav-links">
-                <a href="#" onclick="showSection('home')">Home</a>
-                <a href="#" onclick="showSection('products')">Products</a>
-                <a href="#" onclick="showSection('about')">About</a>
-                <a href="#" onclick="showSection('contact')">Contact</a>
-            </div>
-        </nav>
+        <div class="container nav-container">
+            <div class="logo">Sip <span>&</span> Crunch</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- HOME SECTION -->
-    <div id="home-section">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sip & Crunch</h1>
+            <p>Eco-friendly edible cups for a sustainable future. Enjoy your drink and eat your cup!</p>
+            <a href="#products" class="btn">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <div class="hero">
-                <h1>Edible Cups for a Greener Tomorrow</h1>
-                <p>Discover Sip & Crunch - eco-friendly, delicious edible cups that eliminate waste and enhance your beverage experience!</p>
-                <button class="cta-button" onclick="showSection('products')">Explore Our Products</button>
+            <div class="section-title">
+                <h2>Eat Your Cup, Save The Planet</h2>
+                <p>Our innovative edible cups are not just environmentally friendly, they're delicious too!</p>
             </div>
-
-            <h2 class="section-title">Why Choose Sip & Crunch?</h2>
-            
-            <div class="features">
-                <div class="feature-card">
-                    <img src="/api/placeholder/80/80" alt="Eco-friendly">
+            <div class="features-container">
+                <div class="feature-box">
+                    <div class="feature-icon">🌱</div>
                     <h3>Eco-Friendly</h3>
-                    <p>Our edible cups eliminate waste completely, helping reduce plastic pollution and landfill waste.</p>
+                    <p>Our cups are 100% biodegradable and edible, leaving zero waste behind.</p>
                 </div>
-                
-                <div class="feature-card">
-                    <img src="/api/placeholder/80/80" alt="Delicious">
+                <div class="feature-box">
+                    <div class="feature-icon">☕</div>
+                    <h3>Versatile</h3>
+                    <p>Perfect for hot and cold beverages, maintaining integrity for up to 45 minutes.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🍪</div>
                     <h3>Delicious</h3>
-                    <p>Made with premium ingredients, our cups add a delightful flavor to your beverages.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <img src="/api/placeholder/80/80" alt="Durable">
-                    <h3>Durable</h3>
-                    <p>Engineered to hold hot and cold beverages for up to 45 minutes without leaking or softening.</p>
+                    <p>Made with natural ingredients, our cups are not just sustainable but tasty too!</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h2 class="section-title">Happy Customers</h2>
-            
-            <div class="testimonials">
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="/api/placeholder/60/60" alt="Arfath" class="testimonial-image">
-                            <div class="testimonial-author">- Arfath, Café Owner</div>
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Edible Cups?</h2>
+                <p>Innovative solutions for a sustainable future</p>
+            </div>
+            <div class="why-choose-grid">
+                <div class="choose-item">
+                    <div class="choose-icon">🌱</div>
+                    <div class="choose-content">
+                        <h3>Eco-Friendly & Zero Waste</h3>
+                        <p>Our cups are 100% biodegradable and edible, eliminating waste completely.</p>
+                    </div>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">🍪</div>
+                    <div class="choose-content">
+                        <h3>Delicious & Crunchy</h3>
+                        <p>Made with premium ingredients that enhance your beverage experience.</p>
+                    </div>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">☕</div>
+                    <div class="choose-content">
+                        <h3>Holds Hot & Cold Drinks</h3>
+                        <p>Our special coating ensures the cup remains intact for up to 45 minutes.</p>
+                    </div>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">🌍</div>
+                    <div class="choose-content">
+                        <h3>Sustainable Materials</h3>
+                        <p>Crafted from natural, sustainable ingredients that are better for the planet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Discover our range of delicious edible cups</p>
+            </div>
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('/api/placeholder/400/300')"></div>
+                    <div class="product-content">
+                        <h3>Classic Crunch</h3>
+                        <div class="product-price">₹100 for 100 cups</div>
+                        <p>Our original formula with a delicate cookie flavor that complements any beverage. Perfect for coffee, tea, or cold drinks.</p>
+                        <a href="#contact" class="btn">Order Now</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('/api/placeholder/400/300')"></div>
+                    <div class="product-content">
+                        <h3>Chocolate Delight</h3>
+                        <div class="product-price">₹100 for 100 cups</div>
+                        <p>Rich chocolate-flavored cups that add a delicious chocolatey note to your drinks. Ideal for coffee and hot chocolate.</p>
+                        <a href="#contact" class="btn">Order Now</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('/api/placeholder/400/300')"></div>
+                    <div class="product-content">
+                        <h3>Vanilla Dream</h3>
+                        <div class="product-price">₹100 for 100 cups</div>
+                        <p>Smooth vanilla-infused cups that add a subtle sweetness to your beverages. Perfect with tea and cold drinks.</p>
+                        <a href="#contact" class="btn">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="business">
+        <div class="container">
+            <div class="business-container">
+                <div class="business-img"></div>
+                <div class="business-content">
+                    <h2>Sip and Crunch for Business</h2>
+                    <p>Sustainable solutions for your cafe, restaurant, or event</p>
+                    <ul>
+                        <li>Bulk ordering options for businesses of all sizes</li>
+                        <li>Custom branding and design available</li>
+                        <li>Wholesale pricing for regular orders</li>
+                        <li>Perfect solution for eco-conscious establishments</li>
+                    </ul>
+                    <a href="#contact-sales" class="btn">Contact Our Sales Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Happy Customers</h2>
+                <p>Don't just take our word for it, hear what our customers have to say</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Sip & Crunch cups have transformed our cafe experience! Our customers love the novelty of eating their cups after enjoying their drinks. Plus, we've significantly reduced our waste output."</p>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/50/50" alt="Arfath">
+                            <div class="author-info">
+                                <h4>Arfath</h4>
+                                <p>Cafe Owner</p>
+                            </div>
                         </div>
-                        <p>"Sip & Crunch has revolutionized how we serve drinks at our café. Our customers love the novelty and eco-friendly aspect, and we've reduced our waste significantly!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As an event planner, I'm always looking for eco-friendly options that also wow guests. Sip & Crunch cups have been a hit at every event! The chocolate flavor pairs perfectly with our signature coffee."</p>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/50/50" alt="Naveed">
+                            <div class="author-info">
+                                <h4>Naveed</h4>
+                                <p>Event Planner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have questions? Want to place an order? Reach out to us!</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to us through any of the following methods:</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>123 Green Street, Eco City, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 1234 567890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@sipandcrunch.com</p>
+                        </div>
                     </div>
                     
-                    <div class="testimonial-card">
-                        <div class="testimonial-header">
-                            <img src="images/naveed.jpg" alt="Naveed Shaik" class="testimonial-image">
-                            <div class="testimonial-author">- Naveed Shaik (Saudi), Regular Customer</div>
+                    <div id="contact-sales">
+                        <h3>For Business Inquiries</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">👩‍💼</div>
+                            <div class="contact-details">
+                                <h4>Mubeena (Sales Manager)</h4>
+                                <p>+91 91546 59648</p>
+                                <p>business@sipandcrunch.com</p>
+                            </div>
                         </div>
-                        <p>"I was skeptical at first, but these edible cups are amazing! They hold my coffee perfectly and add a nice subtle flavor. Plus, I feel good about not throwing away a cup after every drink."</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="business-section">
-                <h2>Sip and Crunch for Business</h2>
-                <p>Sustainable solutions for your cafe, restaurant, or event. Join hundreds of businesses already making a difference with our edible cups.</p>
-                <button class="cta-button" onclick="showSection('sales')">Contact Our Sales Team</button>
-            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- PRODUCTS SECTION -->
-    <div id="products-section" class="hidden">
-        <div class="container">
-            <h2 class="section-title">Our Products</h2>
-            
-            <div class="products">
-                <div class="product-card">
-                    <img class="product-image" src="/api/placeholder/350/200" alt="Classic Crunch">
-                    <div class="product-info">
-                        <h3>Classic Crunch</h3>
-                        <p>Our original recipe with a subtle sweet flavor that complements both hot and cold beverages. Made with premium natural ingredients.</p>
-                        <div class="product-price">₹799 for 100 cups</div>
-                        <button class="cta-button" onclick="showSection('contact')">Order Now</button>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img class="product-image" src="/api/placeholder/350/200" alt="Chocolate Delight">
-                    <div class="product-info">
-                        <h3>Chocolate Delight</h3>
-                        <p>Rich chocolate flavor that pairs perfectly with coffee, hot chocolate, and cold beverages. An indulgent treat with every sip.</p>
-                        <div class="product-price">₹990 for 100 cups</div>
-                        <button class="cta-button" onclick="showSection('contact')">Order Now</button>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img class="product-image" src="/api/placeholder/350/200" alt="Vanilla Dream">
-                    <div class="product-info">
-                        <h3>Vanilla Dream</h3>
-                        <p>Smooth vanilla flavor that enhances any beverage. Light, crispy texture with a delicate aroma that elevates your drinking experience.</p>
-                        <div class="product-price">₹600 for 100 cups</div>
-                        <button class="cta-button" onclick="showSection('contact')">Order Now</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="business-section">
-                <h2>Sip and Crunch for Business</h2>
-                <p>Sustainable solutions for your cafe, restaurant, or event. Join hundreds of businesses already making a difference with our edible cups.</p>
-                <button class="cta-button" onclick="showSection('sales')">Contact Our Sales Team</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ABOUT SECTION -->
-    <div id="about-section" class="hidden">
-        <div class="container">
-            <h2 class="section-title">About Sip & Crunch</h2>
-            
-            <div class="about-section">
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="About Sip & Crunch">
-                </div>
-                <div class="about-content">
-                    <h2>Our Story</h2>
-                    <p>Sip & Crunch was born from a simple idea: what if we could enjoy our beverages and eat the cup too? Founded with a mission to reduce single-use waste, we've developed innovative edible cups that are both delicious and durable.</p>
-                    <p>Our team of food scientists and environmental enthusiasts worked tirelessly to create cups that hold hot and cold beverages while maintaining their structure and adding a delightful taste to your drink.</p>
-                    <p>Today, we're proud to offer sustainable alternatives to traditional cups for both individual consumers and businesses committed to reducing their environmental footprint.</p>
-                </div>
-            </div>
-            
-            <div class="about-section">
-                <div class="about-content">
-                    <h2>Our Mission</h2>
-                    <p>At Sip & Crunch, we're committed to creating innovative, sustainable products that make everyday actions more environmentally friendly without sacrificing convenience or enjoyment.</p>
-                    <p>We believe that small changes can make a big difference. By choosing an edible cup instead of a disposable one, you're helping reduce waste and showing that sustainability can be delicious!</p>
-                </div>
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Our Mission">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- CONTACT SECTION -->
-    <div id="contact-section" class="hidden">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            
-            <div class="contact-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" placeholder="Enter your name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="Enter your email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="Enter your phone number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" rows="5" placeholder="How can we help you?"></textarea>
-                </div>
-                
-                <button class="cta-button">Send Message</button>
-            </div>
-            
-            <div class="contact-info">
-                <p><strong>Email:</strong> info@sipandcrunch.com</p>
-                <p><strong>Phone:</strong> +91 91546 59648</p>
-                <p><strong>Address:</strong> 123 Green Street, Eco City, India</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SALES TEAM CONTACT SECTION -->
-    <div id="sales-section" class="hidden">
-        <div class="container">
-            <h2 class="section-title">Contact Our Sales Team</h2>
-            
-            <div class="contact-form">
-                <h3 style="text-align: center; margin-bottom: 1.5rem;">For Business Inquiries</h3>
-                
-                <div class="form-group">
-                    <label for="business-name">Business Name</label>
-                    <input type="text" id="business-name" placeholder="Enter your business name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="contact-person">Contact Person</label>
-                    <input type="text" id="contact-person" placeholder="Enter your name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="business-email">Email Address</label>
-                    <input type="email" id="business-email" placeholder="Enter your email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="business-phone">Phone Number</label>
-                    <input type="tel" id="business-phone" placeholder="Enter your phone number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="business-type">Business Type</label>
-                    <input type="text" id="business-type" placeholder="Cafe, Restaurant, Event, etc.">
-                </div>
-                
-                <div class="form-group">
-                    <label for="estimated-quantity">Estimated Monthly Quantity</label>
-                    <input type="number" id="estimated-quantity" placeholder="Number of cups needed per month">
-                </div>
-                
-                <div class="form-group">
-                    <label for="business-message">Your Message</label>
-                    <textarea id="business-message" rows="5" placeholder="Tell us about your business needs"></textarea>
-                </div>
-                
-                <button class="cta-button">Send Inquiry</button>
-            </div>
-            
-            <div class="contact-info">
-                <h3 style="text-align: center; margin: 2rem 0 1rem;">Contact Our Business Development Manager</h3>
-                <p><strong>Name:</strong> Mubeena</p>
-                <p><strong>Phone:</strong> +91 91546 59648</p>
-                <p><strong>Email:</strong> business@sipandcrunch.com</p>
-            </div>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Sip & Crunch</h3>
-                <p>Eco-friendly edible cups for a sustainable future.</p>
-                <div class="social-links">
-                    <a href="#" title="Instagram">IG</a>
-                    <a href="#" title="X">X</a>
-                    <a href="#" title="WhatsApp">WA</a>
-                    <a href="#" title="Facebook">FB</a>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Sip & Crunch</h3>
+                    <p>Eco-friendly edible cups for a sustainable future. Enjoy your drink and eat your cup!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">FB</a>
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">X</a>
+                        <a href="#" class="social-link">WA</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Policies</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#" onclick="showSection('home')">Home</a>
-                <a href="#" onclick="showSection('products')">Products</a>
-                <a href="#" onclick="showSection('about')">About</a>
-                <a href="#" onclick="showSection('contact')">Contact</a>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sip & Crunch. All Rights Reserved.</p>
             </div>
-            
-            <div class="footer-section">
-                <h3>Policies</h3>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Shipping Policy</a>
-                <a href="#">Return Policy</a>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Sip & Crunch. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Show the home section by default
-        document.addEventListener('DOMContentLoaded', function() {
-            showSection('home');
-        });
-        
-        function showSection(sectionName) {
-            // Hide all sections
-            document.getElementById('home-section').classList.add('hidden');
-            document.getElementById('products-section').classList.add('hidden');
-            document.getElementById('about-section').classList.add('hidden');
-            document.getElementById('contact-section').classList.add('hidden');
-            document.getElementById('sales-section').classList.add('hidden');
-            
-            // Show the selected section
-            document.getElementById(sectionName + '-section').classList.remove('hidden');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-    </script>
 </body>
 </html>
