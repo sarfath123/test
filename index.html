@@ -4,359 +4,624 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sip & Crunch - Eco-Friendly Edible Cups</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #3a9269;
+            --secondary: #e08f4d;
+            --accent: #f9b248;
+            --light: #f7f9f7;
+            --dark: #2c3e50;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            line-height: 1.7;
+            color: #4a4a4a;
+            background-color: var(--light);
+            overflow-x: hidden;
         }
         
         a {
             text-decoration: none;
-            color: #5a8d5a;
+            color: var(--primary);
+            transition: var(--transition);
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
+        }
+        
+        .section-padding {
+            padding: 100px 0;
         }
         
         /* Header */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
         .logo {
             font-size: 28px;
-            font-weight: bold;
-            color: #5a8d5a;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
         }
         
         .logo span {
-            color: #d68c45;
+            color: var(--secondary);
+            font-weight: 800;
+            margin: 0 2px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
+            gap: 40px;
         }
         
         nav ul li a {
             font-weight: 500;
-            transition: all 0.3s ease;
+            position: relative;
+            color: var(--dark);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: #d68c45;
+            color: var(--secondary);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/sarfath123/test/main/images/abc.jpg') center/cover no-repeat;
-            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://raw.githubusercontent.com/sarfath123/test/main/images/abc.jpg') center/cover no-repeat;
+            height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
             padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(58, 146, 105, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+            opacity: 0.6;
+            animation: pulse 5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
         }
         
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-weight: 800;
+            letter-spacing: 1px;
         }
         
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         
         .btn {
             display: inline-block;
-            background-color: #5a8d5a;
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 50px;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
             font-weight: 600;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--secondary);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
         }
         
         .btn:hover {
-            background-color: #d68c45;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
         /* Features Section */
         .features {
-            padding: 80px 0;
+            padding: 100px 0 80px;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
-            color: #5a8d5a;
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .section-title p {
-            font-size: 1.1rem;
-            color: #777;
+            font-size: 1.2rem;
+            color: #666;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 20px auto 0;
         }
         
         .features-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
         
         .feature-box {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             text-align: center;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(to bottom, rgba(58, 146, 105, 0.1), transparent);
+            z-index: -1;
+            transition: height 0.4s ease;
         }
         
         .feature-box:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+        }
+        
+        .feature-box:hover::before {
+            height: 100%;
         }
         
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #5a8d5a;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .feature-box:hover .feature-icon {
+            transform: scale(1.1);
         }
         
         .feature-box h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
-            color: #333;
+            color: var(--dark);
+            font-weight: 600;
         }
         
         /* Why Choose Us Section */
         .why-choose-us {
-            padding: 80px 0;
-            background-color: #f2f9f2;
+            padding: 100px 0;
+            background-color: #f2f9f6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-choose-us::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0.1;
+            top: -150px;
+            right: -150px;
+            border-radius: 50%;
+        }
+        
+        .why-choose-us::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, var(--secondary) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0.1;
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
         }
         
         .why-choose-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            position: relative;
+            z-index: 2;
         }
         
         .choose-item {
             display: flex;
             align-items: flex-start;
-            background-color: #fff;
+            background-color: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .choose-item:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary);
         }
         
         .choose-icon {
-            font-size: 2rem;
-            color: #5a8d5a;
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-right: 20px;
             min-width: 40px;
         }
         
         .choose-content h3 {
             font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #333;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 600;
         }
         
         /* Products Section */
         .products {
-            padding: 80px 0;
+            padding: 100px 0;
+            background-color: white;
         }
         
         .products-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
         }
         
         .product-card {
-            background-color: #fff;
-            border-radius: 10px;
+            background-color: white;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .product-img {
-            height: 250px;
+            height: 280px;
             width: 100%;
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
         }
         
         .product-content {
-            padding: 25px;
+            padding: 30px;
+            position: relative;
         }
         
         .product-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 10px;
-            color: #333;
+            color: var(--dark);
+            font-weight: 600;
         }
         
         .product-price {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #5a8d5a;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 18px;
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: rgba(58, 146, 105, 0.1);
+            border-radius: 20px;
+        }
+        
+        .product-content p {
+            margin-bottom: 25px;
+            color: #666;
         }
         
         /* About Section */
         .about {
-            padding: 80px 0;
-            background-color: #f9f7f2;
+            padding: 100px 0;
+            background-color: #f7f8fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0.05;
+            top: -300px;
+            left: -300px;
+            border-radius: 50%;
         }
         
         .about-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
+            gap: 60px;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
         .about-img {
-            height: 400px;
+            height: 450px;
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+            position: relative;
+            width: 450px;
+            margin: 0 auto;
+            border: 10px solid white;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         .about-content h2 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #5a8d5a;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.3;
         }
         
         .about-content h3 {
             font-size: 1.8rem;
-            margin: 25px 0 15px;
-            color: #5a8d5a;
+            margin: 30px 0 15px;
+            color: var(--primary);
+            font-weight: 600;
         }
         
         .about-content p {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            color: #555;
+            font-size: 1.05rem;
         }
         
         .about-content strong {
-            color: #5a8d5a;
+            color: var(--primary);
+            font-weight: 600;
         }
         
         .hashtags {
-            margin-top: 25px;
-            font-weight: bold;
-            color: #5a8d5a;
+            margin-top: 30px;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 1px;
+            font-size: 1.1rem;
         }
         
         /* Business Section */
         .business {
-            padding: 80px 0;
-            background-color: #f9f7f2;
+            padding: 100px 0;
+            background-color: white;
         }
         
         .business-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
         
         .business-img {
-            height: 400px;
+            height: 450px;
             background: url('/api/placeholder/600/400') center/cover no-repeat;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .business-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         .business-content h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #5a8d5a;
+            color: var(--primary);
+            font-weight: 700;
         }
         
         .business-content ul {
-            margin: 20px 0;
+            margin: 25px 0;
             padding-left: 20px;
         }
         
         .business-content ul li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .business-content ul li::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
         }
         
         /* Testimonials Section */
         .testimonials {
-            padding: 80px 0;
-            background-color: #fff;
+            padding: 100px 0;
+            background-color: #f7f8fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233a9269' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
         
         .testimonials-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
         }
         
         .testimonial-card {
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             position: relative;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
         }
         
         .testimonial-card::before {
             content: """;
-            font-size: 5rem;
+            font-size: 6rem;
             position: absolute;
             top: 10px;
-            left: 10px;
-            color: #eee;
+            left: 20px;
+            color: rgba(58, 146, 105, 0.1);
             z-index: 0;
+            font-family: Georgia, serif;
         }
         
         .testimonial-content {
@@ -366,7 +631,11 @@
         
         .testimonial-content p {
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            position: relative;
         }
         
         .testimonial-author {
@@ -375,26 +644,32 @@
         }
         
         .testimonial-author img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid var(--primary);
         }
         
         .author-info h4 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 5px;
+            color: var(--dark);
         }
         
         .author-info p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #777;
+            font-style: normal;
+            margin: 0;
         }
         
         /* Contact Section */
         .contact {
-            padding: 80px 0;
-            background-color: #f2f9f2;
+            padding: 100px 0;
+            background-color: #f2f9f6;
+            position: relative;
         }
         
         .contact-container {
@@ -404,35 +679,57 @@
         }
         
         .contact-form {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
         
         .contact-form h3 {
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #5a8d5a;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-form h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 500;
+            color: var(--dark);
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 14px 18px;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
             font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(58, 146, 105, 0.1);
         }
         
         .form-group textarea {
@@ -441,65 +738,130 @@
         }
         
         .contact-info {
-            padding: 40px;
+            padding: 50px 40px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
         
         .contact-info h3 {
             font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #5a8d5a;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
         }
         
         .contact-info p {
             margin-bottom: 30px;
+            color: #555;
         }
         
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .contact-icon {
-            font-size: 1.5rem;
-            color: #5a8d5a;
+            font-size: 1.8rem;
+            color: var(--primary);
             margin-right: 15px;
-            min-width: 30px;
+            min-width: 40px;
+            height: 40px;
+            background-color: rgba(58, 146, 105, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .contact-details h4 {
             font-size: 1.2rem;
             margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .contact-details p {
+            margin-bottom: 5px;
+        }
+        
+        #contact-sales {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        #contact-sales h3 {
+            margin-bottom: 20px;
         }
         
         /* Footer */
         footer {
-            background-color: #333;
+            background-color: #2c3e50;
             color: #fff;
-            padding: 50px 0 20px;
+            padding: 70px 0 20px;
+            position: relative;
         }
         
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 40px;
+            margin-bottom: 50px;
         }
         
         .footer-col h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #5a8d5a;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
         }
         
         .footer-col p {
             margin-bottom: 20px;
             color: #ddd;
+            line-height: 1.7;
+        }
+        
+        .footer-links {
+            list-style: none;
         }
         
         .footer-links li {
-            margin-bottom: 10px;
-            list-style: none;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
         }
         
         .footer-links li a {
@@ -508,41 +870,65 @@
         }
         
         .footer-links li a:hover {
-            color: #5a8d5a;
+            color: var(--secondary);
             padding-left: 5px;
         }
         
         .social-links {
             display: flex;
-            margin-top: 20px;
+            margin-top: 25px;
+            gap: 15px;
         }
         
         .social-link {
             width: 40px;
             height: 40px;
-            background-color: #444;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px;
             transition: all 0.3s ease;
+            color: #fff;
         }
         
         .social-link:hover {
-            background-color: #5a8d5a;
-            transform: translateY(-3px);
+            background-color: var(--secondary);
+            transform: translateY(-5px);
         }
         
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
             font-size: 0.9rem;
         }
         
-        /* Media Queries */
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about-container,
+            .business-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                width: 350px;
+                height: 350px;
+                margin-bottom: 30px;
+            }
+            
+            .business-img {
+                height: 350px;
+                margin-bottom: 30px;
+            }
+        }
+        
         @media screen and (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -550,27 +936,56 @@
             }
             
             nav ul {
-                margin-top: 15px;
-            }
-            
-            nav ul li {
-                margin-left: 15px;
+                margin-top: 20px;
+                gap: 20px;
             }
             
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
-            .business-container,
-            .contact-container,
-            .about-container {
-                grid-template-columns: 1fr;
+            .section-title h2 {
+                font-size: 2.3rem;
             }
             
-            .business-img,
+            .about-content h2,
+            .business-content h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-form, 
+            .contact-info {
+                padding: 30px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
             .about-img {
-                height: 300px;
+                width: 280px;
+                height: 280px;
             }
+        }
+        
+        /* Animation */
+        .fade-in {
+            animation: fadeIn 1.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -592,293 +1007,6 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="hero-content fade-in">
             <h1>Sip & Crunch</h1>
-            <p>Eco-friendly edible cups for a sustainable future. Enjoy your drink and eat your cup!</p>
-            <a href="#products" class="btn">Explore Products</a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>Eat Your Cup, Save The Planet</h2>
-                <p>Our innovative edible cups are not just environmentally friendly, they're delicious too!</p>
-            </div>
-            <div class="features-container">
-                <div class="feature-box">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Eco-Friendly</h3>
-                    <p>Our cups are 100% biodegradable and edible, leaving zero waste behind.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon">☕</div>
-                    <h3>Versatile</h3>
-                    <p>Perfect for hot and cold beverages, maintaining integrity for up to 45 minutes.</p>
-                </div>
-                <div class="feature-box">
-                    <div class="feature-icon">🍪</div>
-                    <h3>Delicious</h3>
-                    <p>Made with natural ingredients, our cups are not just sustainable but tasty too!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Our Edible Cups?</h2>
-                <p>Innovative solutions for a sustainable future</p>
-            </div>
-            <div class="why-choose-grid">
-                <div class="choose-item">
-                    <div class="choose-icon">🌱</div>
-                    <div class="choose-content">
-                        <h3>Eco-Friendly & Zero Waste</h3>
-                        <p>Our cups are 100% biodegradable and edible, eliminating waste completely.</p>
-                    </div>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">🍪</div>
-                    <div class="choose-content">
-                        <h3>Delicious & Crunchy</h3>
-                        <p>Made with premium ingredients that enhance your beverage experience.</p>
-                    </div>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">☕</div>
-                    <div class="choose-content">
-                        <h3>Holds Hot & Cold Drinks</h3>
-                        <p>Our special coating ensures the cup remains intact for up to 45 minutes.</p>
-                    </div>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">🌍</div>
-                    <div class="choose-content">
-                        <h3>Sustainable Materials</h3>
-                        <p>Crafted from natural, sustainable ingredients that are better for the planet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Products</h2>
-                <p>Discover our range of delicious edible cups</p>
-            </div>
-            <div class="products-container">
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('/api/placeholder/400/300')"></div>
-                    <div class="product-content">
-                        <h3>Classic Crunch</h3>
-                        <div class="product-price">₹100 for 100 cups</div>
-                        <p>Our original formula with a delicate cookie flavor that complements any beverage. Perfect for coffee, tea, or cold drinks.</p>
-                        <a href="#contact" class="btn">Order Now</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('/api/placeholder/400/300')"></div>
-                    <div class="product-content">
-                        <h3>Chocolate Delight</h3>
-                        <div class="product-price">₹100 for 100 cups</div>
-                        <p>Rich chocolate-flavored cups that add a delicious chocolatey note to your drinks. Ideal for coffee and hot chocolate.</p>
-                        <a href="#contact" class="btn">Order Now</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('/api/placeholder/400/300')"></div>
-                    <div class="product-content">
-                        <h3>Vanilla Dream</h3>
-                        <div class="product-price">₹100 for 100 cups</div>
-                        <p>Smooth vanilla-infused cups that add a subtle sweetness to your beverages. Perfect with tea and cold drinks.</p>
-                        <a href="#contact" class="btn">Order Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Us</h2>
-                <p>Learn about our story and mission</p>
-            </div>
-            <div class="about-container">
-                <div class="about-img" style="background-image: url('https://raw.githubusercontent.com/sarfath123/test/main/images/mubeena.jpg')"></div>
-                <div class="about-content">
-                    <h2>Sip & Crunch – A Revolution in Sustainable Sipping</h2>
-                    <p>Welcome to <strong>Sip & Crunch</strong>, where innovation meets sustainability! Founded by <strong>Dr. MD. Mubeena</strong>, our mission is simple yet impactful—<strong>to redefine the way we enjoy beverages while protecting the planet</strong>.</p>
-                    
-                    <h3>Meet Our Founder – Dr. MD. Mubeena</h3>
-                    <p>Dr. MD. Mubeena, a visionary entrepreneur and sustainability advocate, is the <strong>Founder & CEO</strong> of Sip & Crunch. With a passion for eco-friendly solutions and a background in innovation, she set out to create a product that <strong>reduces waste, enhances experience, and tastes delicious!</strong></p>
-                    
-                    <h3>Our Mission</h3>
-                    <p>At <strong>Sip & Crunch</strong>, we believe in a future where disposable cups no longer harm the environment. Our <strong>edible cups</strong> offer a <strong>zero-waste alternative</strong> that lets you <strong>sip, enjoy, and eat your cup too!</strong></p>
-                    
-                    <h3>Join the Edible Revolution!</h3>
-                    <p>Be part of the change. With <strong>Sip & Crunch</strong>, every sip counts towards a <strong>healthier planet</strong> and a <strong>tastier experience</strong>. 🌍💚</p>
-                    
-                    <p class="hashtags">#SipSustainably #CrunchResponsibly</p>
-                    
-                    <a href="#contact" class="btn">Get In Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Section -->
-    <section class="business">
-        <div class="container">
-            <div class="business-container">
-                <div class="business-img"></div>
-                <div class="business-content">
-                    <h2>Sip and Crunch for Business</h2>
-                    <p>Sustainable solutions for your cafe, restaurant, or event</p>
-                    <ul>
-                        <li>Bulk ordering options for businesses of all sizes</li>
-                        <li>Custom branding and design available</li>
-                        <li>Wholesale pricing for regular orders</li>
-                        <li>Perfect solution for eco-conscious establishments</li>
-                    </ul>
-                    <a href="#contact-sales" class="btn">Contact Our Sales Team</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Happy Customers</h2>
-                <p>Don't just take our word for it, hear what our customers have to say</p>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Sip & Crunch cups have transformed our cafe experience! Our customers love the novelty of eating their cups after enjoying their drinks. Plus, we've significantly reduced our waste output."</p>
-                        <div class="testimonial-author">
-                            <img src="https://raw.githubusercontent.com/sarfath123/test/main/images/arfath.jpg" alt="Arfath">
-                            <div class="author-info">
-                                <h4>Arfath Shaik</h4>
-                                <p>Cafe Owner</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"As an event planner, I'm always looking for eco-friendly options that also wow guests. Sip & Crunch cups have been a hit at every event! The chocolate flavor pairs perfectly with our signature coffee."</p>
-                        <div class="testimonial-author">
-                            <img src="https://raw.githubusercontent.com/sarfath123/test/main/images/naveed.jpg" alt="Naveed">
-                            <div class="author-info">
-                                <h4>Naveed Shaik</h4>
-                                <p>Event Planner</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Have questions? Want to place an order? Reach out to us!</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Feel free to reach out to us through any of the following methods:</p>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h4>Address</h4>
-                            <p>Balaji Nagar,Kurnool, India</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+91 91546 59648</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>mubeena@sipandcrunch.com</p>
-                        </div>
-                    </div>
-                    
-                    <div id="contact-sales">
-                        <h3>For Business Inquiries</h3>
-                        <div class="contact-item">
-                            <div class="contact-icon">👩‍💼</div>
-                            <div class="contact-details">
-                                <h4>Mubeena (Sales Manager)</h4>
-                                <p>+91 91546 59648</p>
-                                <p>business@sipandcrunch.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Sip & Crunch</h3>
-                    <p>Eco-friendly edible cups for a sustainable future. Enjoy your drink and eat your cup!</p>
-                    <div class="social-links">
-                        <!-- Include Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-<!-- Social Media Links -->
-<a href="https://www.facebook.com" class="social-link" target="_blank">
-    <i class="fab fa-facebook-f"></i> 
-</a>  
-<a href="https://www.instagram.com" class="social-link" target="_blank">
-    <i class="fab fa-instagram"></i> 
-</a> 
-<a href="https://twitter.com" class
-</a>
-<a href="https://wa.me/9154659648" class="social-link" target="_blank">
-    <i class="fab fa-whatsapp"></i> 
-</a>  
-
+            <p>Eco-friendly edible cups that redefine sustainable refreshment. Enjoy your drink
